@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.screen {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 開始画面 */
+#start-screen h1 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.difficulty-selection {
+    text-align: center;
+}
+
+.difficulty-selection h2 {
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 1.5em;
+}
+
+.difficulty-btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.difficulty-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.difficulty-btn:active {
+    transform: translateY(0);
+}
+
+.btn-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.btn-desc {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* ゲーム画面 */
+#game-screen {
+    padding: 20px;
+    max-width: 95vw;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.info-panel {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    background: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.info-label {
+    color: #666;
+    margin-right: 5px;
+}
+
+.info-value {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+
+.control-btn:hover {
+    background: #5568d3;
+}
+
+.control-btn:active {
+    background: #4451b8;
+}
+
+#board-container {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    max-width: 100%;
+}
+
+#board {
+    display: inline-grid;
+    gap: 2px;
+    background: #999;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background: #ddd;
+    border: 2px outset #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s;
+}
+
+.cell:hover:not(.revealed):not(.flagged) {
+    background: #ccc;
+}
+
+.cell.revealed {
+    background: #fff;
+    border: 1px solid #ccc;
+    cursor: default;
+}
+
+.cell.mine {
+    background: #ff4444;
+}
+
+.cell.flagged {
+    background: #ffd700;
+}
+
+/* 数字の色 */
+.cell[data-count="1"] { color: #0000ff; }
+.cell[data-count="2"] { color: #008000; }
+.cell[data-count="3"] { color: #ff0000; }
+.cell[data-count="4"] { color: #000080; }
+.cell[data-count="5"] { color: #800000; }
+.cell[data-count="6"] { color: #008080; }
+.cell[data-count="7"] { color: #000000; }
+.cell[data-count="8"] { color: #808080; }
+
+.mobile-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#flag-mode-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* 結果画面 */
+#result-screen {
+    text-align: center;
+    min-width: 400px;
+}
+
+.result-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.result-content h1.win {
+    color: #4caf50;
+}
+
+.result-content h1.lose {
+    color: #f44336;
+}
+
+#result-message {
+    font-size: 1.3em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.result-stats {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.result-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.result-buttons .control-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .cell {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9em;
+    }
+    
+    #start-screen h1 {
+        font-size: 2em;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .info-panel {
+        justify-content: center;
+    }
+    
+    .controls {
+        justify-content: center;
+    }
+    
+    #result-screen {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .result-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: 20px;
+        height: 20px;
+        font-size: 0.8em;
+    }
+    
+    .screen {
+        padding: 20px;
+    }
+}

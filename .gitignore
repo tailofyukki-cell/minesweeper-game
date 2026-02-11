@@ -1,0 +1,16 @@
+# テストファイル
+test_notes.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ログ
+*.log
