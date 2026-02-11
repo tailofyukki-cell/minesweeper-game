@@ -104,7 +104,11 @@ SOFTWARE.
 
 ## 🎨 スクリーンショット
 
-(ゲームプレイ後に追加予定)
+### 開始画面
+![Start Screen](screenshot_start.webp)
+
+### ゲーム画面
+![Game Screen](screenshot_game.webp)
 
 ## 🤝 貢献
 
