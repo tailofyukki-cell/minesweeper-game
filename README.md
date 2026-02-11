@@ -9,7 +9,7 @@
 
 ## 🌐 公開URL
 
-**GitHub Pages:** [こちらでプレイ](https://YOUR_USERNAME.github.io/minesweeper-game/)
+**GitHub Pages:** [こちらでプレイ](https://tailofyukki-cell.github.io/minesweeper-game/)
 
 ## ✨ 機能
 
@@ -43,7 +43,7 @@
 
 1. リポジトリをクローン
 ```bash
-git clone https://github.com/YOUR_USERNAME/minesweeper-game.git
+git clone https://github.com/tailofyukki-cell/minesweeper-game.git
 cd minesweeper-game
 ```
 
